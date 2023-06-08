@@ -95,10 +95,10 @@ WSGI_APPLICATION = 'firstProject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mydb',
-        'USER': 'root',
+        'NAME': 'kalyaktu_car_buy',
+        'USER': 'kalyaktu_car_buy',
         'PASSWORD': '',
-        'HOST': 'localhost',
+        'HOST': 'kalyaktu.beget.tech',
         'PORT': '3306',
     }
 }
