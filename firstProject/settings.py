@@ -97,7 +97,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'kalyaktu_car_buy',
         'USER': 'kalyaktu_car_buy',
-        'PASSWORD': '',
+        'PASSWORD': 'o1vN0qX6',
         'HOST': 'kalyaktu.beget.tech',
         'PORT': '3306',
     }
