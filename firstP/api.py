@@ -67,7 +67,7 @@ def send_account_confirmation_mail(user_id):
     from_email = 'settings.EMAIL_HOST_USER'
     encoded_user_id = urlsafe_base64_encode(force_bytes(user_id))
     html_content = f'<h2>Дорогой, {user_name}!</h2><p>Для того чтобы активировать аккаунт, пожалуйста, перейдите по ссылке ниже<p>' \
-                   f'http://127.0.0.1:8000/api/auth/activate/{encoded_user_id}/'
+                   f'{settings.ROOT_URL}api/auth/activate/{encoded_user_id}/'
 
     to = user['email']
     msg = EmailMessage(subject, html_content, from_email, [to])
