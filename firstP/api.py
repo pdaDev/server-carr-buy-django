@@ -1621,28 +1621,28 @@ class TestApiView(APIView):
 
 
 
-        # high = filter_by_keys(all_keys) \
-        #        | filter_by_keys(exclude_keys(['desire'])) \
-        #         | filter_by_keys(['brend', 'car_body_type', 'engine', 'desire']) \
-        #         | filter_by_keys(exclude_keys(['brend'])) \
-        #         | filter_by_keys(exclude_keys(['desire', 'brend']))
-        #
-        # medium = filter_by_keys(exclude_keys(['fuel_consumption', "trank_volume", "sit_place"])) \
-        #          | filter_by_keys(['brend', 'car_body_type', 'engine']) \
-        #          | filter_by_keys(['car_body_type', 'clearance', 'desire'])
-        #
-        # low = filter_by_keys(exclude_keys(['fuel_consumption', "trank_volume", "sit_place", 'desire', 'brend'])) \
-        #       | filter_by_keys(['desire']) \
-        #       | filter_by_keys(['brend', 'car_body_type'])
+        high = filter_by_keys(all_keys) \
+               | filter_by_keys(exclude_keys(['desire'])) \
+                | filter_by_keys(['brend', 'car_body_type', 'engine', 'desire']) \
+                | filter_by_keys(exclude_keys(['brend'])) \
+                | filter_by_keys(exclude_keys(['desire', 'brend']))
 
-        high = filter_by_keys(['brend'])
-
-
-        medium =  filter_by_keys(['engine'])
+        medium = filter_by_keys(exclude_keys(['fuel_consumption', "trank_volume", "sit_place"])) \
+                 | filter_by_keys(['brend', 'car_body_type', 'engine']) \
+                 | filter_by_keys(['car_body_type', 'clearance', 'desire'])
 
         low = filter_by_keys(exclude_keys(['fuel_consumption', "trank_volume", "sit_place", 'desire', 'brend'])) \
-              | filter_by_keys(['drive']) \
-              | filter_by_keys(['car_body_type'])
+              | filter_by_keys(['desire']) \
+              | filter_by_keys(['brend', 'car_body_type'])
+
+        # high = filter_by_keys(['brend'])
+        #
+        #
+        # medium =  filter_by_keys(['engine'])
+        #
+        # low = filter_by_keys(exclude_keys(['fuel_consumption', "trank_volume", "sit_place", 'desire', 'brend'])) \
+        #       | filter_by_keys(['drive']) \
+        #       | filter_by_keys(['car_body_type'])
 
         high_cars = high.values_list('car_id').distinct()
         medium_cars = medium.values_list('car_id').distinct()
