@@ -511,7 +511,15 @@ class CarCharacteristicsSerializer(serializers.ModelSerializer):
 
     def get_equipments(self, obj):
         generation = obj.equipment.generation
-        return EquipmentListSerializer(Equipment.objects.filter(generation=generation), many=True).data
+        equips = list(EquipmentListSerializer(Equipment.objects.filter(generation=generation), many=True).data)
+
+        Car.objects.filter(generation_variant=obj.generation_variant, equipment__equipment_id=6)
+
+        for eq in equips:
+            if Car.objects.filter(generation_variant=obj.generation_variant, equipment__equipment_id=eq['id']).count() == 0:
+                equips.remove(eq)
+
+        return equips
 
     def get_full_name(self, obj):
         return CarFullNameSerializer(obj.equipment.generation).data
@@ -626,12 +634,19 @@ class AdvertisementRetrieveSerializer(serializers.ModelSerializer):
     review = serializers.SerializerMethodField()
     color = ColorSerializer(read_only=True)
     status_code = StatusSerializer(read_only=True)
+    equipment = serializers.SerializerMethodField()
 
     class Meta:
         model = Advertisement
-        fields = ("advertisement_id", "color", "mileage", "in_taxi", "date_of_production",
+        fields = ("advertisement_id", "color", "mileage", "equipment", "in_taxi", "date_of_production",
                   "start_date", "owner", "description", "car_characteristics", "photos", "name", "price", "rate",
                   "review", "car_id", "status_code")
+
+    def get_equipment(self, obj):
+        return {
+            "id": obj.car.equipment.equipment_id,
+            "name": obj.car.equipment.name
+        }
 
     def get_photos(self, obj):
         return PhotoRetrieveSerializer(AdvertisementCarPhotos.objects.filter(advertisement=obj), many=True).data
