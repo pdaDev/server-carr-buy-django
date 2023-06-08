@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    h1 {
+        font-size: 28px;
+        font-weight: 700;
+    }
+    p {
+        font-size: 22px;
+        font-weight: 500;
+     }
+    .price {
+        background: #FFE12B;
+        padding: 6px 12px;
+        border-radius: 6px;
+        display: inline-block;
+
+    }
+    .price_wrapper {
+        display: flex;
+        justify-content: center;
+     }
+</style>
+<body>
+<h1>
+    Дорогой, {{ user_name }} !
+</h1>
+<p>
+    На объявление  <a href={{url}} target="_blank">
+    {{ car_name }}
+    {{ engine }},
+    {{mileage }}км
+    {{date_of_production}}
+</a> , которое Вы добавили в избранное изменилась цена
+</p>
+<p>
+
+</p>
+<div class="price_wrapper">
+    <h3 class="price">{{last_price}} -> {{new_price_value}}</h3>
+</div>
+<p>
+    Не упустите возможность приобрести данный автомобиль
+</p>
+</body>
+</html>
