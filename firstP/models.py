@@ -535,7 +535,7 @@ class TransmissionType(models.Model):
     code = models.CharField(primary_key=True, max_length=15)
     ru_name = models.CharField(unique=True, max_length=100)
     ru_description = models.CharField(max_length=500, blank=True, null=True)
-    en_name = models.CharField(max_length=100, blank=True, null=True)
+    eng_name = models.CharField(max_length=100, blank=True, null=True)
     eng_description = models.CharField(max_length=500, blank=True, null=True)
 
     class Meta:

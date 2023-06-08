@@ -92,6 +92,17 @@ WSGI_APPLICATION = 'firstProject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'mydb',
+#         'USER': 'root',
+#         'PASSWORD': '',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -179,7 +190,7 @@ REST_FRAMEWORK = {
 
 }
 
-FRONTEND_URL = 'http://localhost:3000/'
+FRONTEND_URL = 'https://carbuy.onrender.com'
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(hours=3),
