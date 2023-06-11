@@ -465,7 +465,7 @@ class Review(models.Model):
 
 
 class ReviewPhoto(models.Model):
-    review = models.ForeignKey(Review, models.DO_NOTHING)
+    review = models.ForeignKey(Review, models.CASCADE)
     photo = models.ImageField(upload_to='reviews')
 
     class Meta:

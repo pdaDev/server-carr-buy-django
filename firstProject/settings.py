@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-%80a9+4cl(j4j$rw6$r&uszu&%%ffjr&_g=k(r-dzt__5+#$1f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 ROOT_URL = "https://carbuyserver.onrender.com/"
+ROOT_URL = "http://127.0.0.1:8000/"
 ALLOWED_HOSTS = ['*']
 
 # Application definition
@@ -102,7 +103,7 @@ WSGI_APPLICATION = 'firstProject.wsgi.application'
 #         'PORT': '3306',
 #     }
 # }
-
+#
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',

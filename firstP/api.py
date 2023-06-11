@@ -104,9 +104,9 @@ class FavouriteAdvertisementAPI(generics.ListAPIView):
             data = AdvertisementFavouritesGetSerializer(data, many=True).data
             if sort is not None:
                 if '-' in sort:
-                    data = list(sorted(data, key=lambda d: d['price'], reverse=True))
+                    data = list(sorted(data, key=lambda d: d[sort.replace('-', '')], reverse=True))
                 else:
-                    data = list(sorted(data, key=lambda d: d['price']))
+                    data = list(sorted(data, key=lambda d: d[sort]))
 
         data = data if 'sort' in request.query_params.keys() else AdvertisementFavouritesGetSerializer(data,
                                                                                                        many=True).data

@@ -27,7 +27,7 @@ class AdminUsersSerializer(serializers.ModelSerializer):
         model = AuthUser
         fields = ('is_banned', "first_name", "id", "last_name",
                   "last_login", "email", "username", 'date_joined',
-                  'total_ads', 'closed_ads', 'booked_ads', 'opened_ads'
+                  'total_ads', 'closed_ads', 'booked_ads', 'opened_ads', 'avatar'
                   )
     def get_total_ads(self, obj):
         return Advertisement.objects.filter(owner__id=obj.id).count()
